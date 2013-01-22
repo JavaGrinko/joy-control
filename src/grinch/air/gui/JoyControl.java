@@ -8,13 +8,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -26,7 +20,7 @@ public class JoyControl {
 	
 	static
     {
-        System.loadLibrary("hidapi-jni-32");
+        System.load("C:\\Workspace\\joy-control\\lib\\native\\win\\hidapi-jni-32.dll");
     }
 
 	private JFrame frmJoyControl;
@@ -108,15 +102,15 @@ public class JoyControl {
 			public void valueChanged(ListSelectionEvent listSelectionEvent){
 				if (list.getSelectedIndex() > -1 && list.getSelectedIndex() < curDevDisp.getDevs().length){
 					lblPath.setText("Path: " + curDevDisp.getDevs()[list.getSelectedIndex()].getPath());
-					lblVendorId.setText("Vendor ID: " + curDevDisp.getDevs()[list.getSelectedIndex()].getVendor_id());;
-					lblProductId.setText("Product ID: " + curDevDisp.getDevs()[list.getSelectedIndex()].getProduct_id());;
-					lblSerialNumber.setText("Serial number: " + curDevDisp.getDevs()[list.getSelectedIndex()].getSerial_number());;
-					lblReleaseNumber.setText("Release number: " + curDevDisp.getDevs()[list.getSelectedIndex()].getRelease_number());;
-					lblManufacturer.setText("Manufacturer: " + curDevDisp.getDevs()[list.getSelectedIndex()].getManufacturer_string());;
-					lblProduct.setText("Product: " + curDevDisp.getDevs()[list.getSelectedIndex()].getProduct_string());;
-					lblUsagePage.setText("Usage page: " + curDevDisp.getDevs()[list.getSelectedIndex()].getUsage_page());;
-					lblUsage.setText("Usage: " + curDevDisp.getDevs()[list.getSelectedIndex()].getUsage());;
-					lblInterfaceNumber.setText("Interface number: " + curDevDisp.getDevs()[list.getSelectedIndex()].getInterface_number());;
+					lblVendorId.setText("Vendor ID: " + curDevDisp.getDevs()[list.getSelectedIndex()].getVendor_id());
+					lblProductId.setText("Product ID: " + curDevDisp.getDevs()[list.getSelectedIndex()].getProduct_id());
+					lblSerialNumber.setText("Serial number: " + curDevDisp.getDevs()[list.getSelectedIndex()].getSerial_number());
+					lblReleaseNumber.setText("Release number: " + curDevDisp.getDevs()[list.getSelectedIndex()].getRelease_number());
+					lblManufacturer.setText("Manufacturer: " + curDevDisp.getDevs()[list.getSelectedIndex()].getManufacturer_string());
+					lblProduct.setText("Product: " + curDevDisp.getDevs()[list.getSelectedIndex()].getProduct_string());
+					lblUsagePage.setText("Usage page: " + curDevDisp.getDevs()[list.getSelectedIndex()].getUsage_page());
+					lblUsage.setText("Usage: " + curDevDisp.getDevs()[list.getSelectedIndex()].getUsage());
+					lblInterfaceNumber.setText("Interface number: " + curDevDisp.getDevs()[list.getSelectedIndex()].getInterface_number());
 				}
 		    }
 		};
@@ -130,7 +124,7 @@ public class JoyControl {
 		frmJoyControl = new JFrame();
 		frmJoyControl.setTitle("Joy Control");
 		frmJoyControl.setBounds(100, 100, 666, 398);
-		frmJoyControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmJoyControl.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frmJoyControl.getContentPane().setLayout(null);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
